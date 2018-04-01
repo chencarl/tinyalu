@@ -1,2 +1,2 @@
-The tinyalu DUT is from Ray Salemi's <The UVM Primer>
+测试用的DUT来源于Ray Salemi所写的《The UVM primer》
 
