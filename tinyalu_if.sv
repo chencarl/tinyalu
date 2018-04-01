@@ -10,7 +10,7 @@ interface tinyalu_if;
     bit             start;
     wire             done; 
     wire   [15:0]  result;
-    // /*
+
     initial begin
           clk = 1'b1;
           reset_n = 1'b0;
@@ -18,50 +18,10 @@ interface tinyalu_if;
           @(negedge clk);
           reset_n = 1'b1;
     end
-    // */
  
     initial begin
     
     forever begin
-    /*
-         case (op) // handle the start signal
-           3'b000: begin //no_op
-              start = 1'b1;  
-              @(posedge clk);
-              #1;
-              start = 1'b0;
-           end
-           3'b101: begin //no_op
-              start = 1'b1;
-              @(posedge clk);
-              #1;
-              start = 1'b0;
-           end
-           3'b110: begin //rst
-              @(posedge clk);
-              reset_n = 1'b0;
-              start = 1'b0;
-              @(posedge clk);
-              #1;
-              reset_n = 1'b1;
-           end
-           3'b111: begin //rst
-              @(posedge clk);
-              reset_n = 1'b0;
-              start = 1'b0;
-              @(posedge clk);
-              #1;
-              reset_n = 1'b1;
-           end
-           default: begin 
-                start = 1'b1;
-                do
-                    @(negedge clk); 
-                while(done == 0);
-                start = 1'b0;             
-           end
-         endcase // case (op_set)
-     */
      if(op == 3'b111) begin
         @(posedge clk);
         reset_n = 1'b0;
@@ -87,6 +47,6 @@ interface tinyalu_if;
      end
     end      
         
-     //Clock generation
+     //Clk generation
      always #10 clk = ~clk;
 endinterface
