@@ -13,11 +13,7 @@ class tinyalu_driver extends uvm_driver#(tinyalu_transaction);
     endfunction
     
     task run_phase(uvm_phase phase);
-        drive();//根据op上的指令，将A，B上的值送入到DUT中，等待start信号开始
-    endtask
-    
-    virtual task drive();
-        tinyalu_transaction ta_tx;
+        drive();//根据op上的指令，将A，B上的值送入到DUT中，等待sttinyalu_transaction ta_tx;
         forever  begin
             @(posedge vif.clk)begin
                 if(vif.start)begin
