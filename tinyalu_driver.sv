@@ -20,10 +20,6 @@ class tinyalu_driver extends uvm_driver#(tinyalu_transaction);
         tinyalu_transaction ta_tx;
         forever  begin
             @(posedge vif.clk)begin
-            // if(vif.reset_n == 0) begin
-                // vif.A = 0;
-                // vif.B = 0;
-            //end else begin
                 if(vif.start)begin
                     seq_item_port.get_next_item(ta_tx);
                     vif.op = ta_tx.op;
@@ -32,8 +28,6 @@ class tinyalu_driver extends uvm_driver#(tinyalu_transaction);
                     seq_item_port.item_done();
                 end
             end
-            // if(vif.done == 1)
-                // seq_item_port.item_done();
         end
     endtask
 endclass
